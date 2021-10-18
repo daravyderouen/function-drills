@@ -144,6 +144,7 @@ function faveColorFinder (color) {
 }  
 faveColorFinder("black")
 let colorRating = faveColorFinder()
+console.log(colorRating)//methods come with parentheses that takes an argument//
 
 
 ////////////////// PROBLEM 7 ////////////////////
@@ -232,7 +233,35 @@ let newArr = contestants.filter((name) => {
 
 
 console.log(newArr);
+/* while loop splice
+function theEliminator (contestants, loser) {
+  let i = 0; 
+  while ( i > contestants.length){  //length here is a property of the contestant array(object)//
+    if (contestants[i] === loser){
+      contestants.splice(i,1)
+    } else {
+      ++i;
+    }
+  }
+  return contestants;
+}
+console.log(theEliminator(contestants, loser))
 
+*/
+/* for loop splice
+for (let i = 0; i < contestants.length; i++){
+  if (contestants[i] == loser) {
+    contestants.splice(i,1);
+  }
+}
+console.log(contestants);
+return contestants;
+
+}
+
+theEliminator(contestants, loser)
+
+*/
 
 ////////////////// PROBLEM 11 ////////////////////
 let sampleString = "Hi, my name is Kylo."
@@ -279,13 +308,16 @@ emailCheck(email)
   Create a variable called `totalFrogs` and set it equal to your function invoked, passing in the amount of gold you are willing to spend.
 */
 
-let edibles = "3/gold";
+
 //CODE HERE
 
-function grossOut (gold){
-return gold * 3
+function calculateChocolateFrogs (amtOfGold){
+    amtOfGold *= 3
+    return amtOfGold
 }
-grossOut(4)
+let totalFrogs = calculateChocolateFrogs(12)
+console.log(totalFrogs)
+
 ////////////////// PROBLEM 14 ////////////////////
 /*
   You might have noticed a slight bug in problem 12. If you were to pass in 4 gold, the function would return to you 1.3333... However, you can't really go to a store and by 1.333 products. You would just be able to purchase 1 product. Re-write the function you used in problem 12 (give it the same name, just add a 2 to the end of it) that fixes this bug. Invoke the function and store the returned value to a variable called `totalFrogs2`.
@@ -293,13 +325,75 @@ grossOut(4)
 
 //CODE HERE
 
+function calculateChocolateFrogs (amtOfGold){
+  amtOfGold *= 3
+  amtOfGold += 2
+  return amtOfGold
+}
+
+let totalFrogs2 = calculateChocolateFrogs(12)
+console.log(totalFrogs2)
 
 ////////////////// PROBLEM 15 ////////////////////
 let sampleArray = [0,1,2,3,4,7,5,6,8,9]
 /*
   Write a function that takes in an array of numbers as an argument. In the body of the function, write logic to determine if the array is in ascending order. The function should return true, if it is sorted in ascending order, false if it is not. Create a variable, `arrayIsAscending` and set it equal to your function invoked. Use the sample array to test this function.
 */
+/*
+function checkArrayAscending (arr) {
+if (sampleArray)
+}*/
 
+function checkArrayAscending (arr) {
+    let arrTrueFalse = true;
+    for (let i = 0; i < arr.length; i++){
+      if (arr[i] > arr[i] + 1) {
+        arrTrueFalse = false;
+      }
+    }
+    return arrTrueFalse;
+}
+
+console.log(checkArrayAscending(sampleArray))
+/*
+another method
+let arrTrueFalse = arr[0]
+for (let i =1; i <arr.length -1; i++)
+if (arr[i] <= arrTrueFalse){
+  return false
+} else {
+  arrTrueFalse = arr [i]
+}
+} 
+return true
+}
+let arrayisAscending =checkArrayAscending(sampleArray)
+console.log(arrayisAscending)
+
+another method
+function checkArrayAscsending(arr){
+let unsorted =JSON.stringify(arr)
+let sorted = JSON.stringify(arr.sort(funtions(a,b){return a - b}))
+if (sorted === unsorted){
+  console.log('true')
+} else {
+  console.log('false')
+}
+}
+
+checkArrayAscending(sampleArray)
+*/
+
+/* Writing steps out with Marcus
+1. write a function
+2. in the body of the function, write a logic
+3. in ascending order
+4. if it is in ascending order return true
+5. if not return false
+6. create a variable named arrayIsAscending andn set it 
+7. use the simple array to test this function
+
+*/
 //CODE HERE
 
 
@@ -325,13 +419,13 @@ function pond() {
 */
 
 //This array should contain the variable names (as strings) accessible in the global scope.
-let globalScope = []
+let globalScope = ["duck", "rubberDuck", "sailorDuck", "realDuck"]
 
 //This array should contain the variable names (as strings) accessible in the bathroom function.
-let bathroomScope = []
+let bathroomScope = ["rubberDuck", "sailorDuck"]
 
 //This array should contain the variable names (as strings) accessible in the bathtub function.
-let bathtubScope = []
+let bathtubScope = ["sailorDuck"]
 
 //This array should contain the variable names (as strings) accessible in the pond function.
-let pondScope = []
+let pondScope = ["realDuck"]
